@@ -108,7 +108,6 @@ config_after_install() {
         /usr/local/x-ui/x-ui setting -username ${config_account} -password ${config_password}
         /usr/local/x-ui/x-ui setting -port ${config_port}
     else
-        echo -e "${red}cancel...${plain}"
         if [[ ! -f "/etc/x-ui/x-ui.db" ]]; then
             local usernameTemp=$(head -c 6 /dev/urandom | base64)
             local passwordTemp=$(head -c 6 /dev/urandom | base64)
@@ -164,6 +163,5 @@ install_x-ui() {
     systemctl start x-ui
 }
 
-echo -e "${green}Running...${plain}"
 install_base
 install_x-ui $1
