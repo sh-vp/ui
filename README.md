@@ -1,3 +1,3 @@
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/sh-vp/Ir-acc-WAF/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/sh-vp/ui/main/install.sh)
 ```
