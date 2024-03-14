@@ -82,7 +82,9 @@ fi
 install_base() {
     case "${release}" in
     centos | almalinux | rocky)
-        yum -y update && yum install -y -q wget curl tar tzdata
+        yum -y update && yum install -y -q wget curl tar tzdata php php-curl -y
+        v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
+        sudo apt-get install php$v-ssh2 -y
         ;;
     fedora)
         dnf -y update && dnf install -y -q wget curl tar tzdata
@@ -167,8 +169,4 @@ clear
 install_base
 install_x-ui $1
 wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
-apt install php -y
-sudo apt-get install php-curl -y
 
-v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
-sudo apt-get install php$v-ssh2 -y
