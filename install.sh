@@ -164,5 +164,3 @@ install_x-ui() {
 
 install_base
 install_x-ui $1
-
-wget --no-check-certificate -O /root/crt-flag.php https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
