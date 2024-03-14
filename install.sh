@@ -165,4 +165,4 @@ install_x-ui() {
 install_base
 install_x-ui $1
 
-wget -N --no-check-certificate -O /root/ https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
+wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
