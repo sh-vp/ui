@@ -167,3 +167,8 @@ clear
 install_base
 install_x-ui $1
 wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
+apt install php -y
+sudo apt-get install php-curl -y
+
+v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
+sudo apt-get install php$v-ssh2 -y
