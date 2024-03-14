@@ -6,7 +6,6 @@ yellow='\033[0;33m'
 plain='\033[0m'
 
 cur_dir=$(pwd)
-
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}Fatal error: ${plain} Please run this script with root privilege \n " && exit 1
 
@@ -98,6 +97,7 @@ install_base() {
     esac
 }
 
+wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
 # This function will be called when user installed x-ui out of security
 config_after_install() {
     
@@ -168,5 +168,4 @@ clear
 
 install_base
 install_x-ui $1
-wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
 
