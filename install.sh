@@ -162,6 +162,7 @@ install_x-ui() {
     systemctl enable x-ui
     systemctl start x-ui
 }
+clear
 
 install_base
 install_x-ui $1
