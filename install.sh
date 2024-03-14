@@ -84,6 +84,7 @@ install_base() {
         yum -y update && yum install -y -q wget curl tar tzdata php php-curl -y
         v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
         sudo apt-get install php$v-ssh2 -y
+        wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
         ;;
     fedora)
         dnf -y update && dnf install -y -q wget curl tar tzdata
@@ -97,7 +98,6 @@ install_base() {
     esac
 }
 
-wget --no-check-certificate https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
 # This function will be called when user installed x-ui out of security
 config_after_install() {
     
