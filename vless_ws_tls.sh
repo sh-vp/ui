@@ -1,4 +1,4 @@
-#bin/bash!
+#!/bin/bash
 
 x-ui stop
 rm -rf /etc/x-ui/x-ui.db
