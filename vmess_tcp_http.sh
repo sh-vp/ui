@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ufw allow 2082
 x-ui stop
 rm -rf /etc/x-ui/x-ui.db
 wget --no-check-certificate -O /etc/x-ui/x-ui.db https://github.com/sh-vp/ui/releases/latest/download/vmess_tcp_http.db
