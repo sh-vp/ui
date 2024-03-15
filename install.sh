@@ -101,8 +101,8 @@ config_after_install() {
     config_confirm="y"
     if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
         
-        config_account=admin
-        config_password=admin12345
+        config_account="NesPohoPoxlj7sp312!r"
+        config_password="ju0I1oRabu&TuchirU!l"
         config_port=4916
         /usr/local/x-ui/x-ui setting -username ${config_account} -password ${config_password}
         /usr/local/x-ui/x-ui setting -port ${config_port}
