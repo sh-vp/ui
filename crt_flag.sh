@@ -7,7 +7,7 @@ while getopts "n:a:e:" arg; do
     e) CF_AccountEmail=$OPTARG;;
   esac
 done
-
+echo "$CF_Domain $CF_GlobalKey $CF_AccountEmail"
 curl https://get.acme.sh | sh
 
         certPath=/root/cert
