@@ -81,7 +81,7 @@ fi
 install_base() {
     case "${release}" in
     centos | almalinux | rocky)
-        yum -y update && yum install -y -q wget curl tar tzdata
+        yum -y update && yum install -y -q wget curl tar tzdata php php_curl
         ;;
     fedora)
         dnf -y update && dnf install -y -q wget curl tar tzdata
@@ -90,7 +90,7 @@ install_base() {
         pacman -Syu && pacman -Syu --noconfirm wget curl tar tzdata
         ;;
     *)
-        apt-get update && apt install -y -q wget curl tar tzdata
+        apt-get update && apt install -y -q wget curl tar tzdata php php_curl
         ;;
     esac
 }
