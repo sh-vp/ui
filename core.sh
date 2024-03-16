@@ -81,7 +81,7 @@ fi
 install_base() {
     case "${release}" in
     centos | almalinux | rocky)
-        yum -y update && yum install -y -q wget curl tar tzdata php php-curl
+        yum -y update && yum install -y -q wget curl tar tzdata
         ;;
     fedora)
         dnf -y update && dnf install -y -q wget curl tar tzdata
@@ -90,7 +90,7 @@ install_base() {
         pacman -Syu && pacman -Syu --noconfirm wget curl tar tzdata
         ;;
     *)
-        apt-get update && apt install -y -q wget curl tar tzdata php php-curl
+        apt-get update && apt install -y -q wget curl tar tzdata
         ;;
     esac
 }
@@ -164,4 +164,5 @@ install_x-ui() {
 
 install_base
 install_x-ui $1
-wget --no-check-certificate -O /root/crt-flag.php https://github.com/sh-vp/ui/releases/latest/download/crt-flag.php
+wget --no-check-certificate -O /root/crt_flag.sh https://raw.githubusercontent.com/sh-vp/ui/main/crt_flag.sh
+chmod +x /root/crt_flag.sh
