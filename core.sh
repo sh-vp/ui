@@ -98,7 +98,7 @@ install_base() {
 # This function will be called when user installed x-ui out of security
 config_after_install() {
     
-    config_confirm="y"
+    config_confirm="n"
     if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
         
         config_account=admin
