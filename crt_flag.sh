@@ -25,7 +25,7 @@ curl https://get.acme.sh | sh
         ~/.acme.sh/acme.sh --issue --dns dns_cf -d ${CF_Domain} -d *.${CF_Domain} --log
 
         ~/.acme.sh/acme.sh --installcert -d ${CF_Domain} -d *.${CF_Domain} --ca-file /root/cert/ca.cer \
-            --cert-file /root/cert/${CF_Domain}.cer --key-file /root/cert/${CF_Domain}.key \
+            --cert-file /root/cert/cert.cer --key-file /root/cert/private.key \
             --fullchain-file /root/cert/fullchain.cer
 
         ~/.acme.sh/acme.sh --upgrade --auto-upgrade
