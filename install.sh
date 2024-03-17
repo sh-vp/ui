@@ -2,10 +2,7 @@
 
 red='\033[1;91m'          # Red
 green='\033[1;92m'        # Green
-yellow='\033[1;93m'       # Yellow
 White='\033[1;97m'        # White
-Blue='\033[1;94m'
-BICyan='\033[1;96m'
 
 read -p "Please Enter Your Telegram Bot Domain :" domain
 echo -e  "Your Telegram Bot Domain Will Set to : ${red}${domain}${White}"
