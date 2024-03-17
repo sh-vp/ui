@@ -7,10 +7,10 @@ White='\033[1;97m'        # White
 Blue='\033[1;94m'
 BICyan='\033[1;96m'
 
-read -p "Please Enter Your Telegram Bot ${red}Domain ${White}:" domain
-echo -e  "Your Telegram Bot Domain Will Set to : ${domain}"
-read -p "Please Enter Your Telegram Bot ${red}Token ${White}:" token
-echo -e  "Your Telegram Bot Token will set to : ${token}"
+read -p "Please Enter Your Telegram Bot Domain :" domain
+echo -e  "Your Telegram Bot Domain Will Set to : ${red}${domain}${White}"
+read -p "Please Enter Your Telegram Bot Token :" token
+echo -e  "Your Telegram Bot Token will set to : ${red}${token}${White}"
 apt update -y && apt upgrade -y
 sudo apt install nginx certbot python3-certbot-nginx php php-curl -y
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
