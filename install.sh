@@ -1,13 +1,22 @@
 #!/bin/bash
-
 red='\033[1;91m'          # Red
 green='\033[1;92m'        # Green
 White='\033[1;97m'        # White
-
+yellow='\033[1;93m'       # Yellow
+echo -e  "-------------------------------------------"
+echo -e  ""
+echo -e  "-------------${green} Input Data Set ${White}--------------"
+echo -e  ""
+echo -e  "-------------------------------------------"
 read -p "Please Enter Your Telegram Bot Domain :" domain
-echo -e  "Your Telegram Bot Domain Will Set to : ${red}${domain}${White}"
+echo -e  ""
+echo -e  "Your Telegram Bot Domain Will Set to : ${green}${domain}${White}"
+echo -e  ""
 read -p "Please Enter Your Telegram Bot Token :" token
-echo -e  "Your Telegram Bot Token will set to : ${red}${token}${White}"
+echo -e  ""
+echo -e  "Your Telegram Bot Token will set to : ${green}${token}${White}"
+echo -e  ""
+echo -e  "${yellow}Start installing Script ...${White}"
 apt update -y && apt upgrade -y
 sudo apt install nginx certbot python3-certbot-nginx php php-curl -y
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
