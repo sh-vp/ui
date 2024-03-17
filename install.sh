@@ -3,6 +3,7 @@ red='\033[1;91m'          # Red
 green='\033[1;92m'        # Green
 White='\033[1;97m'        # White
 yellow='\033[1;93m'       # Yellow
+clear
 echo -e  "-------------------------------------------"
 echo -e  ""
 echo -e  "-------------${green} Input Data Set ${White}--------------"
