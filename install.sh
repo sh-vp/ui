@@ -41,7 +41,7 @@ ufw allow http
 ufw allow https
 ufw allow 22
 ufw enable
-#clear
+clear
 curl -X POST https://api.telegram.org/bot${token}/setWebhook?url=${domain}/index.php -H "Accept: application/json" -H "Content-Type: text/html" -H "Content-Length: 0"
 #clear
 echo -e  "${red}-------------------------------------------${White}"
