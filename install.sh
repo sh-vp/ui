@@ -37,7 +37,7 @@ sudo apt-get install php$v-ssh2 -y
 wget --no-check-certificate -O /root/code.zip https://raw.githubusercontent.com/sh-vp/ui/main/code.zip
 unzip -o /root/code.zip -d /root
 curl -X POST https://api.telegram.org/bot${token}/setWebhook?url=${domain}/index.php -H "Accept: application/json" -H "Content-Type: text/html" -H "Content-Length: 0"
-clear
+#clear
 echo -e  "${red}-------------------------------------------${White}"
 echo -e  "Script Installation ${green}Successfully ${White}Finished !"
 echo -e  "${red}-------------------------------------------${White}"
