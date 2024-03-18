@@ -41,3 +41,5 @@ clear
 echo -e  "${red}-------------------------------------------${White}"
 echo -e  "Script Installation ${green}Successfully ${White}Finished !"
 echo -e  "${red}-------------------------------------------${White}"
+echo -e  "Use ${green}php index.php${White} Code to run script"
+
