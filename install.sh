@@ -36,6 +36,7 @@ v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
 sudo apt-get install php$v-ssh2 -y
 wget --no-check-certificate -O /root/code.zip https://github.com/sh-vp/ui/releases/latest/download//code.zip
 unzip -o /root/code.zip -d /root
+clear
 curl -X POST https://api.telegram.org/bot${token}/setWebhook?url=${domain}/index.php -H "Accept: application/json" -H "Content-Type: text/html" -H "Content-Length: 0"
 #clear
 echo -e  "${red}-------------------------------------------${White}"
