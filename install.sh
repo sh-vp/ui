@@ -19,7 +19,7 @@ echo -e  "Your Telegram Bot Token will set to : ${green}${token}${White}"
 echo -e  ""
 echo -e  "${yellow}Start installing Script ...${White}"
 apt update -y && apt upgrade -y
-sudo apt install nginx certbot python3-certbot-nginx php php-curl unzip -y
+sudo apt install nginx certbot python3-certbot-nginx php php-curl unzip ufw-y
 sudo apt remove apache2 -y
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
 ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
@@ -36,6 +36,10 @@ v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
 sudo apt-get install php$v-ssh2 -y
 wget --no-check-certificate -O /root/code.zip https://github.com/sh-vp/ui/releases/latest/download//code.zip
 unzip -o /root/code.zip -d /root
+ufw allow http
+ufw allow https
+ufw allow 22
+ufw enable
 #clear
 curl -X POST https://api.telegram.org/bot${token}/setWebhook?url=${domain}/index.php -H "Accept: application/json" -H "Content-Type: text/html" -H "Content-Length: 0"
 #clear
