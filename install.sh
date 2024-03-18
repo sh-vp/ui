@@ -19,7 +19,7 @@ echo -e  "Your Telegram Bot Token will set to : ${green}${token}${White}"
 echo -e  ""
 echo -e  "${yellow}Start installing Script ...${White}"
 apt update -y && apt upgrade -y
-sudo apt install nginx certbot python3-certbot-nginx php php-curl -y
+sudo apt install nginx certbot python3-certbot-nginx php php-curl unzip -y
 sudo apt remove apache2 -y
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
 ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
