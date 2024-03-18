@@ -29,6 +29,7 @@ root="/var/www/html"
 root2="/root"
 sed -i -e "s|$root|$root2|g" /etc/nginx/sites-available/${domain} 
 sed -i -e "s/80 default_server/80/g" /etc/nginx/sites-available/${domain} 
+sed -i -e "s|# server_names_hash_bucket_size 64| server_names_hash_bucket_size 512|g" /etc/nginx/sites-available/${domain} 
 systemctl enable nginx
 systemctl restart nginx
 certbot --nginx -d ${domain} --register-unsafely-without-email
