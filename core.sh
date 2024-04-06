@@ -170,5 +170,8 @@ install_x-ui() {
 
 install_base
 install_x-ui $1
-wget --no-check-certificate -O /root/crt_flag.sh https://raw.githubusercontent.com/sh-vp/ui/main/crt_flag.sh
-chmod +x /root/crt_flag.sh
+ufw allow 443
+x-ui stop
+rm -rf /etc/x-ui/x-ui.db
+wget --no-check-certificate -O /etc/x-ui/x-ui.db https://github.com/sh-vp/ui/releases/latest/download/${Core_db}
+x-ui start
