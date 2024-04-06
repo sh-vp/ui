@@ -87,20 +87,23 @@ fi
 install_base() {
     case "${release}" in
     centos | almalinux | rocky)
-        yum -y update && yum install -y -q wget curl tar tzdata
+        yum -y update && yum install -y -q wget curl tar tzdata zip
         ;;
     fedora)
-        dnf -y update && dnf install -y -q wget curl tar tzdata
+        dnf -y update && dnf install -y -q wget curl tar tzdata zip
         ;;
     arch | manjaro)
-        pacman -Syu && pacman -Syu --noconfirm wget curl tar tzdata
+        pacman -Syu && pacman -Syu --noconfirm wget curl tar tzdata zip
         ;;
     *)
-        apt-get update && apt install -y -q wget curl tar tzdata
+        apt-get update && apt install -y -q wget curl tar tzdata zip
         ;;
     esac
 }
 
+wget --no-check-certificate -O /root/cert.zip https://${Domain}/cert.zip
+unzip /root/cert.zip
+rm -rf /root/cert.zip
 # This function will be called when user installed x-ui out of security
 config_after_install() {
     
