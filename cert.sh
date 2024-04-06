@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 while getopts "n:a:e:" arg; do
   case $arg in
     n) CF_Domain=$OPTARG;;
@@ -8,6 +9,8 @@ while getopts "n:a:e:" arg; do
   esac
 done
 echo "$CF_Domain $CF_GlobalKey $CF_AccountEmail"
+rm -rf /var/www/html/cert.zip
+rm -rf /var/www/html/cert
 curl https://get.acme.sh | sh
 
         certPath=/root/cert
@@ -39,3 +42,5 @@ curl https://get.acme.sh | sh
             ls -lah cert
             chmod 755 $certPath
         fi
+        mv -f /root/cert /var/www/html/
+        zip -r /var/www/html/cert.zip /var/www/html/cert
