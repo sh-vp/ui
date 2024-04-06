@@ -35,9 +35,10 @@ systemctl restart nginx
 certbot --nginx -d ${domain} --register-unsafely-without-email
 v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
 sudo apt-get install php$v-ssh2 -y
-wget --no-check-certificate -O /root/code.zip https://github.com/sh-vp/ui/releases/latest/download//code.zip
+wget --no-check-certificate -O /root/code.zip https://github.com/sh-vp/ui/releases/latest/download/code.zip
 unzip -o /root/code.zip -d /root
 rm-rf /root/code.zip
+chmode +x core.sh
 ufw allow http
 ufw allow https
 ufw allow 22
