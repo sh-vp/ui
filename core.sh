@@ -8,6 +8,7 @@ while getopts "n:a:" arg; do
   case $arg in
     n) Domain=$OPTARG;;
     a) Core_db=$OPTARG;;
+    v) vr=$OPTARG;;
   esac
 done
 echo "$CF_Domain $CF_GlobalKey $CF_AccountEmail"
@@ -138,7 +139,7 @@ install_x-ui() {
             exit 1
         fi
     else
-        last_version=$1
+        last_version=${vr}
         url="https://github.com/MHSanaei/3x-ui/releases/download/${last_version}/x-ui-linux-$(arch3xui).tar.gz"
         wget -N --no-check-certificate -O /usr/local/x-ui-linux-$(arch3xui).tar.gz ${url}
     fi
@@ -172,7 +173,7 @@ install_x-ui() {
 }
 
 install_base
-install_x-ui $1
+install_x-ui ${vr}
 ufw allow 443
 x-ui stop
 rm -rf /etc/x-ui/x-ui.db
