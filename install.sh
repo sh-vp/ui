@@ -25,9 +25,6 @@ cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
 ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
 cd /etc/nginx/sites-enabled && ls -la
 sed -i -e "s/server_name _/server_name ${domain}/g" /etc/nginx/sites-available/${domain}
-root="/var/www/html"
-root2="/root"
-sed -i -e "s|$root|$root2|g" /etc/nginx/sites-available/${domain} 
 sed -i -e "s/80 default_server/80/g" /etc/nginx/sites-available/${domain} 
 sed -i -e "s|# server_names_hash_bucket_size 64| server_names_hash_bucket_size 512|g" /etc/nginx/sites-available/${domain} 
 systemctl enable nginx
@@ -36,9 +33,12 @@ certbot --nginx -d ${domain} --register-unsafely-without-email
 v=php -v | grep -Po '(?<=PHP )([0-9].[0-9])'
 sudo apt-get install php$v-ssh2 -y
 wget --no-check-certificate -O /root/code.zip https://github.com/sh-vp/ui/releases/latest/download/code.zip
-unzip -o /root/code.zip -d /root
+unzip -o /root/code.zip -d /var/www/html/
 rm-rf /root/code.zip
-chmode +x core.sh
+chmode +x /var/www/html/cert.sh
+ln -s /var/www/html/index.php /root/
+ln -s /var/www/html/config.php /root/
+ln -s /var/www/html/servers.txt /root/
 ufw allow http
 ufw allow https
 ufw allow 22
