@@ -13,6 +13,14 @@ read -p "Please Enter Your Telegram Bot Domain :" domain
 echo -e  ""
 echo -e  "Your Telegram Bot Domain Will Set to : ${green}${domain}${White}"
 echo -e  ""
+read -p "Please Enter Your Telegram Bot Domain CloudFlare API:" apidomain
+echo -e  ""
+echo -e  "Your Telegram Bot Domain Will Set to : ${green}${apidomain}${White}"
+echo -e  ""
+read -p "Please Enter Your Telegram Bot Domain Zone ID:" iddomain
+echo -e  ""
+echo -e  "Your Telegram Bot Domain Will Set to : ${green}${iddomain}${White}"
+echo -e  ""
 read -p "Please Enter Your Telegram Bot Token :" token
 echo -e  ""
 echo -e  "Your Telegram Bot Token will set to : ${green}${token}${White}"
