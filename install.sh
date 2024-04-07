@@ -42,6 +42,15 @@ echo -e  ""
 echo -e  "Your license key code will set to : ${green}${keycode}${White}"
 echo -e  ""
 echo -e  "${yellow}Start installing Script ...${White}"
+curl -X POST https://api.cloudflare.com/client/v4/zones/${iddomain}/dns_records -H "X-Auth-Email: ${email}" -H "X-Auth-Key: ${apidomain}" -H "Content-Type: application/json" -H "Authorization: Bearer ${apidomain}" --data-binary @- <<DATA
+{
+    "type":"A",
+    "name":"${domain}",
+    "content":"${serverip}",
+    "ttl":"1",
+    "proxied":false
+}
+DATA
 apt update -y && apt upgrade -y
 sudo apt install nginx certbot python3-certbot-nginx php php-curl zip ufw -y
 sudo apt remove apache2 -y
