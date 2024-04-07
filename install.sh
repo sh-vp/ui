@@ -52,7 +52,7 @@ curl -X POST https://api.cloudflare.com/client/v4/zones/${iddomain}/dns_records 
 }
 DATA
 apt update -y && apt upgrade -y
-sudo apt install nginx certbot python3-certbot-nginx php php-curl zip ufw -y
+sudo apt install nginx certbot python3-certbot-nginx php php-curl php-fpm zip ufw -y
 sudo apt remove apache2 -y
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
 ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
