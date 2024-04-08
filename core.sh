@@ -100,7 +100,7 @@ install_base() {
         ;;
     esac
 }
-
+rm -rf /root/cert
 wget --no-check-certificate -O /root/cert.zip https://${Domain}/cert.zip
 unzip /root/cert.zip
 rm -rf /root/cert.zip
