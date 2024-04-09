@@ -10,7 +10,6 @@ while getopts "n:a:" arg; do
     a) Core_db=$OPTARG;;
   esac
 done
-echo "$CF_Domain $CF_GlobalKey $CF_AccountEmail"
 cur_dir=$(pwd)
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}Fatal error: ${plain} Please run this script with root privilege \n " && exit 1
@@ -100,10 +99,7 @@ install_base() {
         ;;
     esac
 }
-rm -rf /root/cert
-wget --no-check-certificate -O /root/cert.zip https://${Domain}/cert.zip
-unzip /root/cert.zip
-rm -rf /root/cert.zip
+
 # This function will be called when user installed x-ui out of security
 config_after_install() {
     
@@ -172,12 +168,3 @@ last_version=$(curl -Ls "https://api.github.com/repos/MHSanaei/3x-ui/releases/la
 
 install_base
 install_x-ui ${last_version}
-ufw allow 443
-ufw allow 2096
-ufw allow 2082
-ufw allow 4916
-x-ui stop
-rm -rf /etc/x-ui/x-ui.db
-wget --no-check-certificate -O /etc/x-ui/x-ui.db https://github.com/sh-vp/ui/releases/latest/download/${Core_db}
-x-ui start
-ufw --force enable
