@@ -90,8 +90,6 @@ sed -i -e 's/ipx/'${serverip}'/g' /var/www/html/set_base.php
 sed -i -e 's/dx/'${domain}'/g' /var/www/html/set_base.php
 sed -i -e 's/tx/'${token}'/g' /var/www/html/set_base.php
 sed -i -e 's/cx/'${chatid}'/g' /var/www/html/set_base.php
-wget --no-check-certificate -O /root/start.sh https://raw.githubusercontent.com/sh-vp/ui/main/start.sh
-chmod +x start.sh
 clear
 echo -e  "${red}-------------------------------------------${White}"
 echo -e  "Script Installation ${green}Successfully ${White}Finished !"
