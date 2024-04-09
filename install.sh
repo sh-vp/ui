@@ -33,10 +33,10 @@ read -p "Please Enter Your Telegram chat_id :" chatid
 echo -e  ""
 echo -e  "Your Telegram chat_id will set to : ${green}${chatid}${White}"
 echo -e  ""
-read -p "Please Enter ip address of this server :" serverip
-echo -e  ""
-echo -e  "ip address of this server is : ${green}${serverip}${White}"
-echo -e  ""
+#read -p "Please Enter ip address of this server :" serverip
+#echo -e  ""
+#echo -e  "ip address of this server is : ${green}${serverip}${White}"
+#echo -e  ""
 read -p "Please Enter Your license key code:" keycode
 echo -e  ""
 echo -e  "Your license key code will set to : ${green}${keycode}${White}"
@@ -85,8 +85,9 @@ $tg_bot_domain = "dx";
 $tg_token = "tx";
 $admin = "cx";
 EOF
+sip=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 sed -i -e 's/keyx/'${keycode}'/g' /var/www/html/set_base.php
-sed -i -e 's/ipx/'${serverip}'/g' /var/www/html/set_base.php
+sed -i -e 's/ipx/$sip/g' /var/www/html/set_base.php
 sed -i -e 's/dx/'${domain}'/g' /var/www/html/set_base.php
 sed -i -e 's/tx/'${token}'/g' /var/www/html/set_base.php
 sed -i -e 's/cx/'${chatid}'/g' /var/www/html/set_base.php
