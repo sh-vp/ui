@@ -95,5 +95,5 @@ clear
 echo -e  "${red}-------------------------------------------${White}"
 echo -e  "Script Installation ${green}Successfully ${White}Finished !"
 echo -e  "${red}-------------------------------------------${White}"
-echo -e  "Use ${green}./start.sh${White} Code to run script"
-
+echo -e  "For Use Script First go to ${green}/var/www/html${White} With ${green}cd /var/www/html${White}"
+echo -e  "Then use ${green}php index.php ${White} For runing the script"
