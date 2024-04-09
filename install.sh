@@ -76,7 +76,7 @@ ln -s /var/www/html/servers.txt /root/
 ufw allow http
 ufw allow https
 ufw allow 22
-ufw enable
+ufw --force enable
 curl -X POST https://api.telegram.org/bot${token}/setWebhook?url=${domain}/index.php -H "Accept: application/json" -H "Content-Type: text/html" -H "Content-Length: 0"
 cat <<\EOF > /var/www/html/set_base.php
 <?php
