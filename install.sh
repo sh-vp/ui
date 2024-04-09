@@ -70,7 +70,6 @@ wget --no-check-certificate -O /var/www/html/code.zip https://github.com/sh-vp/u
 unzip -o /var/www/html/code.zip -d /var/www/html/
 rm -rf /var/www/html/code.zip
 chmod +x /var/www/html/cert.sh
-ln -s /var/www/html/index.php /root/
 ln -s /var/www/html/config.php /root/
 ln -s /var/www/html/servers.txt /root/
 ufw allow http
