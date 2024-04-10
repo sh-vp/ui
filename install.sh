@@ -50,11 +50,11 @@ DATA
 apt update -y && apt upgrade -y
 sudo apt install nginx certbot python3-certbot-nginx php php-curl php-fpm zip ufw -y
 sudo apt remove apache2 -y
+wget --no-check-certificate -O /etc/nginx/sites-available/${domain} https://raw.githubusercontent.com/sh-vp/ui/main/config.conf
 cp /etc/nginx/sites-available/default /etc/nginx/sites-available/${domain}
 ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
 cd /etc/nginx/sites-enabled && ls -la
-sed -i -e "s/server_name _/server_name ${domain}/g" /etc/nginx/sites-available/${domain}
-sed -i -e "s/80 default_server/80/g" /etc/nginx/sites-available/${domain} 
+sed -i -e "s/server_name _/server_name ${domain}/g" /etc/nginx/sites-available/${domain} 
 sed -i -e "s|# server_names_hash_bucket_size 64| server_names_hash_bucket_size 512|g" /etc/nginx/sites-available/${domain} 
 systemctl enable nginx
 systemctl restart nginx
