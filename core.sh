@@ -4,12 +4,7 @@ red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
-while getopts "n:a:" arg; do
-  case $arg in
-    n) Domain=$OPTARG;;
-    a) Core_db=$OPTARG;;
-  esac
-done
+
 cur_dir=$(pwd)
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}Fatal error: ${plain} Please run this script with root privilege \n " && exit 1
@@ -82,23 +77,6 @@ elif [[ "${release}" == "armbian" ]]; then
 else
     echo -e "${red}Failed to check the OS version, please contact the author!${plain}" && exit 1
 fi
-
-install_base() {
-    case "${release}" in
-    centos | almalinux | rocky)
-        yum -y update && yum install -y -q wget curl tar tzdata zip
-        ;;
-    fedora)
-        dnf -y update && dnf install -y -q wget curl tar tzdata zip
-        ;;
-    arch | manjaro)
-        pacman -Syu && pacman -Syu --noconfirm wget curl tar tzdata zip
-        ;;
-    *)
-        apt-get update && apt install -y -q wget curl tar tzdata zip
-        ;;
-    esac
-}
 
 # This function will be called when user installed x-ui out of security
 config_after_install() {
