@@ -77,7 +77,7 @@ elif [[ "${release}" == "armbian" ]]; then
 else
     echo -e "${red}Failed to check the OS version, please contact the author!${plain}" && exit 1
 fi
-
+apt-get update && apt install  -y -q wget curl tar tzdata zip
 # This function will be called when user installed x-ui out of security
 config_after_install() {
     
