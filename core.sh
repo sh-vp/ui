@@ -142,5 +142,4 @@ last_version=$(curl -Ls "https://api.github.com/repos/MHSanaei/3x-ui/releases/la
     systemctl start x-ui
 }
 
-install_base
 install_x-ui ${last_version}
