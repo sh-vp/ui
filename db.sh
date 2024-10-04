@@ -5,13 +5,13 @@ while getopts "a:" arg; do
     a) Core_db=$OPTARG;;
   esac
 done
-ufw allow 443
-ufw allow 2096
-ufw allow 2082
-ufw allow 4916
-ufw allow 22
-x-ui stop
-rm -rf /etc/x-ui/x-ui.db
-wget --no-check-certificate -O /etc/x-ui/x-ui.db https://github.com/sh-vp/ui/releases/latest/download/${Core_db}
-x-ui start
-ufw --force enable
+sudo ufw allow 443
+sudo ufw allow 2096
+sudo ufw allow 2082
+sudo ufw allow 4916
+sudo ufw allow 22
+sudo x-ui stop
+sudo rm -rf /etc/x-ui/x-ui.db
+sudo wget --no-check-certificate -O /etc/x-ui/x-ui.db https://github.com/sh-vp/ui/releases/latest/download/${Core_db}
+sudo x-ui start
+sudo ufw --force enable
